@@ -1,0 +1,12 @@
+build/*
+.settings/*
+.project
+.classpath
+bin/*
+/build/
+/.idea
+/out
+/output
+
+output/production/hfuu_shop-master/src/tools/StaticVar.class
+*.class
