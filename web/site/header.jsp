@@ -8,6 +8,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
 <nav class="navbar navbar-default">
 <div class="container">

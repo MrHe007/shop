@@ -26,7 +26,7 @@ function toLogin(isLogin){
 		window.location.href="user/login.jsp?login-info="+"请先登录";
 	}
 }
-function collect(goodsId){
+function collect(goodsId){      // 发送 ajax ，将goodId 绑定的 goods 添加到登入用户的收藏夹里面
    collectRequest=new XMLHttpRequest();
    collectRequest.onreadystatechange=function()
       {
@@ -41,7 +41,7 @@ function collect(goodsId){
    collectRequest.open("GET","CollectServlet?goodsId="+goodsId+"&t="+Math.random(),true);
    collectRequest.send();
 }
-function shoppingCart(isLogin,goodsNum,goodsId){
+function shoppingCart(isLogin,goodsNum,goodsId){     // 发送 ajax ，将goodId 绑定的 goods 添加到登入用户的购物车里面里面
 
 if(isLogin){
 	xmlShop=new XMLHttpRequest();
@@ -81,24 +81,24 @@ Integer goodsNum=0;
 		return;
 	}
 	boolean isLogin =LoginVerify.isLogin(request);
-	 pageContext.setAttribute("good",good);
+	 pageContext.setAttribute("good",good);                     // 商品
 	 User Procuteuser=userHandle.findById(good.getProducter_id());
-	 pageContext.setAttribute("Procuteuser",Procuteuser);
+	 pageContext.setAttribute("Procuteuser",Procuteuser);       // 商品发布人
 	 int typeId= good.getType_id();
 	 String typeName="";
 	 switch(typeId){
-	 case 6:typeName="其他";
-	 break;
-	 case 1:typeName="书籍";
-	 break;
-	 case 2:typeName="生活用品";
-	 break;
-	 case 5:typeName="体育";
-	 break;
-	 case 3:typeName="衣装";
-	 break;
-	 case 4:typeName="电子";
-	 break;
+         case 6:typeName="其他";
+         break;
+         case 1:typeName="书籍";
+         break;
+         case 2:typeName="生活用品";
+         break;
+         case 5:typeName="体育";
+         break;
+         case 3:typeName="衣装";
+         break;
+         case 4:typeName="电子";
+         break;
 	}
 	Date date=good.getCreatDate();
 	SimpleDateFormat myFmt=new SimpleDateFormat("yyyy年MM月dd日 HH时mm分");
@@ -159,7 +159,7 @@ Integer goodsNum=0;
 							</div>
 						</div>
 						<!-- 确认购买区域 -->
-						<script type="text/javascript">
+                        <script type="text/javascript">
 						$(document).ready(function(){
 						  $("#buy").click(function(){
 						  $(".buy-confirm").show(200);

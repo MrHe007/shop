@@ -14,9 +14,9 @@
 %>
 <%
 	//判断pn参数
-	int pn = 1;
-	int perPage = StaticVar.PERPAGE_GOODS;//每页显示几条？
-	int ceta = 0;
+	int pn = 1;     // 当前页
+	int perPage = StaticVar.PERPAGE_GOODS;      //每页显示几条？
+	int ceta = 0;           // 默认全部商品
 	String tmpString = request.getParameter("pn");
 	//获取pn参数
 	if (tmpString != null && tmpString.length() != 0) {
@@ -31,7 +31,7 @@
 			ceta = Integer.parseInt(tmpString);
 		}
 	}
-	int limitMin = (pn - 1) * perPage;
+	int limitMin = (pn - 1) * perPage;      // 分页起始数据
 	GoodsHandle goodHandle = new GoodsHandle();
 	UserHandle userHandle = new UserHandle();
 	List<Goods> list = null;
@@ -114,7 +114,7 @@
 							for (Goods good : list) {
 								if (good.getProducter_id() == null)
 									continue;
-								User user = userHandle.findById(good.getProducter_id());
+								User user = userHandle.findById(good.getProducter_id());    // 拿到发布这个物品的人
 					%><div class="list-group-item">
 						<div class="row">
 							<div class="goods-img col-md-2">
@@ -142,6 +142,7 @@
                                                 out.print(dateStr);
                                      %>
 									</span>
+                                    <%--出售方式--%>
                                     <span class="detail-goods text-muted label label-primary" style="margin-left: 10px;">  <%
                                         Integer tag = good.getTag();
                                         System.out.print(good);

@@ -22,7 +22,7 @@ public class GoodsHandle {
     }
 
     public Goods findById(int id) throws Exception {
-        Goods goods = null;
+        Goods goods = null;     // 实体类
         String sql = "SELECT id,image,type_id,name,num,price,status,content,producter_id,create_date,tag FROM goods WHERE id=?";
         this.pstmt = this.conn.prepareStatement(sql);
         this.pstmt.setInt(1, id);
@@ -103,7 +103,7 @@ public class GoodsHandle {
         }
         rs = this.pstmt.executeQuery("SELECT FOUND_ROWS()");
         if(rs.next()){
-        	num.value=rs.getInt(1);
+        	num.value=rs.getInt(1);             // 拿到分页的总数,通过引用传值方式
         }
         rs.close();this.pstmt.close();
         return all;

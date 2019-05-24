@@ -1,3 +1,8 @@
+
+## 原github地址：https://github.com/MrHe007/shop
+
+
+
 ## 使用原生Jsp和Servlet实现的简单二手物品交易网站
 
 demo: [http://veekxt.com/hfuu_shop](http://veekxt.com/hfuu_shop)
