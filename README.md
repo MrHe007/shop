@@ -1,5 +1,6 @@
 
-## 原github地址：https://github.com/MrHe007/shop
+## 借鉴并做了部分修改：
+## 原github地址：https://github.com/veekxt/hfuu_shop
 
 
 
